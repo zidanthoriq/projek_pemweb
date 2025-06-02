@@ -12,7 +12,7 @@
             background-color: #f8f9fa;
         }
 
-        .navbar-custom {
+         .navbar-custom {
             background-color: white;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             padding: 0.75rem 0;
@@ -29,6 +29,7 @@
             font-size: 0.875rem;
             font-weight: 500;
             padding: 0.25rem 0.5rem;
+            margin: 0 0.5rem;
             border-bottom: 2px solid transparent;
             transition: all 0.2s;
         }
@@ -44,8 +45,8 @@
 
         .search-container {
             position: relative;
+            width: 100%;
             max-width: 32rem;
-            margin: 0 auto;
         }
 
         .search-icon {
@@ -71,7 +72,7 @@
         }
 
         .dropdown-toggle::after {
-            margin-left: 0.5rem;
+            display: none;
         }
 
         .profile-img {
@@ -305,34 +306,35 @@
     </style>
 </head>
 <body>
-    <!-- Navbar -->
+     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-custom">
-        <div class="container-fluid">
-
-            <a class="navbar-brand" href="#">VolunteerHub</a>
-            
-            <!-- Menu -->
-            <ul class="navbar-nav me-auto d-none d-md-flex">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Dashboard</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Cari Event</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">Pendaftaran Event</a>
-                </li>
-            </ul>
+        <div class="container">
+            <div class="d-flex align-items-center">
+                <a class="navbar-brand" href="#">VolunteerHub</a>
+                
+                <!-- Menu -->
+                <ul class="navbar-nav d-none d-md-flex">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Cari Event</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Pendaftaran Event</a>
+                    </li>
+                </ul>
+            </div>
 
             <!-- Search Bar -->
-            <div class="search-container flex-grow-1 mx-3">
+            <div class="search-container mx-auto">
                 <div class="position-relative">
                     <img src="/placeholder.svg?height=20&width=20&text=🔍" alt="Search" class="search-icon">
                     <input type="search" class="form-control search-input" placeholder="Cari event...">
                 </div>
             </div>
 
-            <!-- Profile User -->
+            <!-- User Profile -->
             <div class="dropdown">
                 <button class="btn btn-link dropdown-toggle d-flex align-items-center text-decoration-none" type="button" data-bs-toggle="dropdown">
                     <img src="/placeholder.svg?height=32&width=32&text=JD" alt="Profile" class="profile-img">
@@ -340,21 +342,21 @@
                     <img src="/placeholder.svg?height=16&width=16&text=▼" alt="Dropdown" class="dropdown-arrow">
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end">
-                    <li class="px-3 py-2 border-bottom">
+                    <li class="dropdown-header">
                         <p class="mb-0 fw-medium">[NAMA USER]</p>
-                        <p class="mb-0 text-muted small">email@email.com</p>
+                        <p class="mb-0 text-muted small">example@email.com</p>
                     </li>
-                    <li><a class="dropdown-item d-flex align-items-center" href="#">
-                        <img src="/placeholder.svg?height=16&width=16&text=📋" alt="History" class="me-2">
+                    <li><a class="dropdown-item" href="#">
+                        <img src="/placeholder.svg?height=16&width=16&text=📋" alt="History">
                         Riwayat Pendaftaran
                     </a></li>
-                    <li><a class="dropdown-item d-flex align-items-center" href="#">
-                        <img src="/placeholder.svg?height=16&width=16&text=⚙️" alt="Settings" class="me-2">
+                    <li><a class="dropdown-item" href="#">
+                        <img src="/placeholder.svg?height=16&width=16&text=⚙️" alt="Settings">
                         Pengaturan
                     </a></li>
                     <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item d-flex align-items-center" href="#">
-                        <img src="/placeholder.svg?height=16&width=16&text=🚪" alt="Logout" class="me-2">
+                    <li><a class="dropdown-item" href="#">
+                        <img src="/placeholder.svg?height=16&width=16&text=🚪" alt="Logout">
                         Logout
                     </a></li>
                 </ul>
