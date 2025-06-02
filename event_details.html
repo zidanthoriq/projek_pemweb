@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Event - Aksi Sosial Bersih Pantai | VolunteerHub</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .navbar-custom {
+            background-color: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            padding: 0.75rem 0;
+        }
+
+        .navbar-brand {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1f2937 !important;
+        }
+
+        .navbar-nav .nav-link {
+            color: #6b7280 !important;
+            font-size: 0.875rem;
+            font-weight: 500;
+            padding: 0.25rem 0.5rem;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #374151 !important;
+        }
+
+        .navbar-nav .nav-link.active {
+            color: #2563eb !important;
+            border-bottom-color: #2563eb;
+        }
+
+        .search-container {
+            position: relative;
+            max-width: 32rem;
+            margin: 0 auto;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1.25rem;
+            height: 1.25rem;
+            pointer-events: none;
+        }
+
+        .search-input {
+            padding-left: 2.5rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+        }
+
+        .search-input:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 0.2rem rgba(59, 130, 246, 0.25);
+        }
+
+        .dropdown-toggle::after {
+            margin-left: 0.5rem;
+        }
+
+        .profile-img {
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+        }
+
+        .dropdown-arrow {
+            width: 1rem;
+            height: 1rem;
+            margin-left: 0.5rem;
+        }
+
+        .card-custom {
+            border: none;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5rem;
+        }
+
+        .event-image {
+            height: 16rem;
+            object-fit: cover;
+            border-radius: 0.5rem 0.5rem 0 0;
+        }
+
+        @media (min-width: 768px) {
+            .event-image {
+                height: 20rem;
+            }
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            background-color: #dcfce7;
+            color: #166534;
+        }
+
+        .status-badge img {
+            width: 1rem;
+            height: 1rem;
+            margin-right: 0.25rem;
+        }
+
+        .interest-count {
+            display: flex;
+            align-items: center;
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+
+        .interest-count img {
+            width: 1rem;
+            height: 1rem;
+            margin-right: 0.25rem;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 0.375rem;
+            color: white;
+            margin-right: 0.75rem;
+            flex-shrink: 0;
+        }
+
+        .benefit-icon img {
+            width: 1.25rem;
+            height: 1.25rem;
+        }
+
+        .benefit-icon.blue { background-color: #3b82f6; }
+        .benefit-icon.green { background-color: #10b981; }
+        .benefit-icon.purple { background-color: #8b5cf6; }
+        .benefit-icon.yellow { background-color: #f59e0b; }
+
+        .registration-card {
+            position: sticky;
+            top: 1.5rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .info-item img {
+            width: 1.25rem;
+            height: 1.25rem;
+            margin-right: 0.5rem;
+            flex-shrink: 0;
+        }
+
+        .progress-custom {
+            height: 0.5rem;
+            border-radius: 9999px;
+            background-color: #e5e7eb;
+            margin: 0.5rem 0;
+        }
+
+        .progress-bar-custom {
+            height: 100%;
+            border-radius: 9999px;
+            background-color: #3b82f6;
+        }
+
+        .warning-box {
+            background-color: #fefce8;
+            border: 1px solid #fde047;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .warning-box img {
+            width: 1.25rem;
+            height: 1.25rem;
+            margin-right: 0.5rem;
+            flex-shrink: 0;
+        }
+
+        .warning-title {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #92400e;
+            margin: 0;
+        }
+
+        .warning-text {
+            font-size: 0.875rem;
+            color: #a16207;
+            margin: 0;
+        }
+
+        .btn-primary-custom {
+            background-color: #2563eb;
+            border-color: #2563eb;
+            font-weight: 500;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            transition: all 0.2s;
+        }
+
+        .btn-primary-custom:hover {
+            background-color: #1d4ed8;
+            border-color: #1d4ed8;
+        }
+
+        .btn-outline-custom {
+            border: 1px solid #d1d5db;
+            color: #374151;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            background-color: white;
+            transition: all 0.2s;
+        }
+
+        .btn-outline-custom:hover {
+            background-color: #f9fafb;
+            color: #374151;
+            border-color: #d1d5db;
+        }
+
+        .btn-icon {
+            width: 1rem;
+            height: 1rem;
+            margin-right: 0.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            font-size: 0.875rem;
+            color: #4b5563;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item img {
+            width: 1rem;
+            height: 1rem;
+            margin-right: 0.5rem;
+        }
+
+        .footer-custom {
+            background-color: white;
+            border-top: 1px solid #e5e7eb;
+            margin-top: 3rem;
+            padding: 3rem 0;
+        }
+
+        .footer-nav a {
+            color: #4b5563;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin: 0 1rem;
+            transition: color 0.2s;
+        }
+
+        .footer-nav a:hover {
+            color: #2563eb;
+        }
+
+        @media (max-width: 767px) {
+            .navbar-nav {
+                display: none;
+            }
+            
+            .search-container {
+                margin: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container-fluid">
+
+            <a class="navbar-brand" href="#">VolunteerHub</a>
+            
+            <!-- Menu -->
+            <ul class="navbar-nav me-auto d-none d-md-flex">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Cari Event</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Pendaftaran Event</a>
+                </li>
+            </ul>
+
+            <!-- Search Bar -->
+            <div class="search-container flex-grow-1 mx-3">
+                <div class="position-relative">
+                    <img src="/placeholder.svg?height=20&width=20&text=🔍" alt="Search" class="search-icon">
+                    <input type="search" class="form-control search-input" placeholder="Cari event...">
+                </div>
+            </div>
+
+            <!-- Profile User -->
+            <div class="dropdown">
+                <button class="btn btn-link dropdown-toggle d-flex align-items-center text-decoration-none" type="button" data-bs-toggle="dropdown">
+                    <img src="/placeholder.svg?height=32&width=32&text=JD" alt="Profile" class="profile-img">
+                    <span class="text-dark fw-medium">[NAMA USER]</span>
+                    <img src="/placeholder.svg?height=16&width=16&text=▼" alt="Dropdown" class="dropdown-arrow">
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li class="px-3 py-2 border-bottom">
+                        <p class="mb-0 fw-medium">[NAMA USER]</p>
+                        <p class="mb-0 text-muted small">email@email.com</p>
+                    </li>
+                    <li><a class="dropdown-item d-flex align-items-center" href="#">
+                        <img src="/placeholder.svg?height=16&width=16&text=📋" alt="History" class="me-2">
+                        Riwayat Pendaftaran
+                    </a></li>
+                    <li><a class="dropdown-item d-flex align-items-center" href="#">
+                        <img src="/placeholder.svg?height=16&width=16&text=⚙️" alt="Settings" class="me-2">
+                        Pengaturan
+                    </a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item d-flex align-items-center" href="#">
+                        <img src="/placeholder.svg?height=16&width=16&text=🚪" alt="Logout" class="me-2">
+                        Logout
+                    </a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Body -->
+    <main class="py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <!-- Gambar Event -->
+                    <div class="card card-custom">
+                        <img src="/placeholder.svg?height=320&width=800&text=Beach+Cleanup+Event" alt="Aksi Sosial Bersih Pantai" class="event-image">
+                    </div>
+
+                    <!-- Deskripsi Event -->
+                    <div class="card card-custom">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <span class="status-badge">
+                                    <img src="/placeholder.svg?height=16&width=16&text=✓" alt="Open">
+                                    Pendaftaran Terbuka
+                                </span>
+                                <div class="interest-count">
+                                    <img src="/placeholder.svg?height=16&width=16&text=❤️" alt="Interest">
+                                    125 orang tertarik
+                                </div>
+                            </div>
+
+                            <h1 class="display-6 fw-bold text-dark mb-4">Aksi Sosial Bersih Pantai</h1>
+                            
+                            <div>
+                                <p class="text-muted fs-5 lh-base mb-4">
+                                    Bergabunglah dengan kami dalam aksi bersih pantai untuk menjaga kelestarian ekosistem laut dan pantai. 
+                                    Event ini bertujuan untuk membersihkan sampah plastik dan limbah lainnya yang mencemari pantai Ancol.
+                                </p>
+                                
+                                <h3 class="fs-4 fw-semibold text-dark mb-3">Deskripsi Event</h3>
+                                <p class="text-muted mb-4">
+                                    Aksi sosial bersih pantai ini merupakan kegiatan volunteer yang bertujuan untuk menjaga kebersihan 
+                                    dan kelestarian lingkungan pantai. Peserta akan dibekali dengan peralatan pembersihan dan akan 
+                                    bekerja sama dalam tim untuk membersihkan area pantai yang telah ditentukan.
+                                </p>
+                                
+                                <h3 class="fs-4 fw-semibold text-dark mb-3">Kegiatan yang Akan Dilakukan</h3>
+                                <ul class="text-muted mb-4">
+                                    <li class="mb-2">Pembersihan sampah plastik di area pantai</li>
+                                    <li class="mb-2">Pemilahan sampah untuk daur ulang</li>
+                                    <li class="mb-2">Edukasi lingkungan kepada pengunjung pantai</li>
+                                    <li class="mb-2">Dokumentasi kegiatan untuk kampanye lingkungan</li>
+                                    <li class="mb-2">Penanaman pohon bakau (jika memungkinkan)</li>
+                                </ul>
+                                
+                                <h3 class="fs-4 fw-semibold text-dark mb-3">Yang Perlu Dibawa</h3>
+                                <ul class="text-muted mb-0">
+                                    <li class="mb-2">Pakaian yang nyaman dan tidak keberatan kotor</li>
+                                    <li class="mb-2">Sepatu yang cocok untuk pantai</li>
+                                    <li class="mb-2">Topi dan kacamata hitam</li>
+                                    <li class="mb-2">Botol minum pribadi</li>
+                                    <li class="mb-2">Sunscreen/tabir surya</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Benefit  -->
+                    <div class="card card-custom">
+                        <div class="card-body">
+                            <h3 class="fs-4 fw-semibold text-dark mb-4">Manfaat yang Didapat</h3>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="benefit-item">
+                                        <div class="benefit-icon blue">
+                                            <img src="/placeholder.svg?height=20&width=20&text=🏆" alt="Certificate">
+                                        </div>
+                                        <div>
+                                            <h4 class="fw-medium mb-1">Sertifikat Volunteer</h4>
+                                            <p class="text-muted small mb-0">Mendapat sertifikat resmi sebagai volunteer lingkungan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <div class="benefit-item">
+                                        <div class="benefit-icon green">
+                                            <img src="/placeholder.svg?height=20&width=20&text=🤝" alt="Network">
+                                        </div>
+                                        <div>
+                                            <h4 class="fw-medium mb-1">Networking</h4>
+                                            <p class="text-muted small mb-0">Bertemu dengan volunteer lain yang peduli lingkungan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <div class="benefit-item">
+                                        <div class="benefit-icon purple">
+                                            <img src="/placeholder.svg?height=20&width=20&text=💚" alt="Contribution">
+                                        </div>
+                                        <div>
+                                            <h4 class="fw-medium mb-1">Kontribusi Positif</h4>
+                                            <p class="text-muted small mb-0">Berkontribusi langsung untuk kelestarian lingkungan</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <div class="benefit-item">
+                                        <div class="benefit-icon yellow">
+                                            <img src="/placeholder.svg?height=20&width=20&text=⭐" alt="Experience">
+                                        </div>
+                                        <div>
+                                            <h4 class="fw-medium mb-1">Pengalaman Berharga</h4>
+                                            <p class="text-muted small mb-0">Mendapat pengalaman volunteer yang bermakna</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Container Register -->
+                <div class="col-lg-4">
+                    <div class="card card-custom registration-card">
+                        <div class="card-body">
+
+                            <div class="mb-4">
+                                <div class="info-item">
+                                    <img src="/placeholder.svg?height=20&width=20&text=📅" alt="Date">
+                                    <div>
+                                        <p class="fw-medium mb-0">30 Juni 2025</p>
+                                        <p class="text-muted small mb-0">Sabtu, 06:00 - 12:00 WIB</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="info-item">
+                                    <img src="/placeholder.svg?height=20&width=20&text=📍" alt="Location">
+                                    <div>
+                                        <p class="fw-medium mb-0">Pantai Ancol</p>
+                                        <p class="text-muted small mb-0">Jakarta Utara, DKI Jakarta</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="info-item">
+                                    <img src="/placeholder.svg?height=20&width=20&text=👥" alt="Organizer">
+                                    <div>
+                                        <p class="fw-medium mb-0">Organizer</p>
+                                        <p class="text-muted small mb-0">Komunitas Peduli Lingkungan</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Bar progress -->
+                            <div class="mb-4">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <span class="fw-medium">Kuota Peserta</span>
+                                    <span class="fw-medium">18/30</span>
+                                </div>
+                                <div class="progress-custom">
+                                    <div class="progress-bar-custom" style="width: 60%"></div>
+                                </div>
+                                <div class="d-flex justify-content-between small text-muted">
+                                    <span>60% terisi</span>
+                                    <span>12 slot tersisa</span>
+                                </div>
+                            </div>
+
+                            <div class="warning-box">
+                                <div class="d-flex">
+                                    <img src="/placeholder.svg?height=20&width=20&text=⚠️" alt="Warning">
+                                    <div>
+                                        <h4 class="warning-title">Batas Pendaftaran</h4>
+                                        <p class="warning-text">28 Juni 2025, 23:59 WIB</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button class="btn btn-primary-custom w-100 mb-3">
+                                Daftar Sekarang
+                            </button>
+                            
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-outline-custom d-flex align-items-center justify-content-center">
+                                    <img src="/placeholder.svg?height=16&width=16&text=💾" alt="Save" class="btn-icon">
+                                    Simpan ke Favorit
+                                </button>
+                                
+                                <button class="btn btn-outline-custom d-flex align-items-center justify-content-center">
+                                    <img src="/placeholder.svg?height=16&width=16&text=📤" alt="Share" class="btn-icon">
+                                    Bagikan Event
+                                </button>
+                            </div>
+
+                            <!-- Oranizer Info -->
+                            <div class="mt-4 pt-4 border-top">
+                                <h4 class="fw-medium mb-3">Kontak Organizer</h4>
+                                <div class="contact-item">
+                                    <img src="/placeholder.svg?height=16&width=16&text=📧" alt="Email">
+                                    info@peduli-lingkungan.org
+                                </div>
+                                <div class="contact-item">
+                                    <img src="/placeholder.svg?height=16&width=16&text=📞" alt="Phone">
+                                    +62 812-3456-7890
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-custom">
+        <div class="container">
+            <div class="text-center">
+              
+                <div class="mb-4">
+                    <h2 class="h3 fw-bold text-dark mb-3">VolunteerHub</h2>
+                    <p class="text-muted lh-base mx-auto" style="max-width: 48rem;">
+                        Platform terpercaya untuk menghubungkan volunteer dengan berbagai kegiatan sosial dan lingkungan yang bermakna. Bergabunglah dengan komunitas yang peduli untuk membuat perubahan positif bagi masyarakat dan lingkungan sekitar kita.
+                    </p>
+                </div>
+
+                <div class="footer-nav mb-4">
+                    <a href="#">Dashboard</a>
+                    <a href="#">Cari Event</a>
+                    <a href="#">Pendaftaran Event</a>
+                    <a href="#">Riwayat Pendaftaran</a>
+                </div>
+
+                <div class="border-top pt-4">
+                    <p class="text-muted small mb-0">
+                        © 2025 VolunteerHub. Semua hak dilindungi undang-undang.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
