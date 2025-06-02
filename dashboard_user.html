@@ -12,7 +12,7 @@
             background-color: #f8f9fa;
         }
 
-       .navbar-custom {
+        .navbar-custom {
             background-color: white;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             padding: 0.75rem 0;
@@ -29,6 +29,7 @@
             font-size: 0.875rem;
             font-weight: 500;
             padding: 0.25rem 0.5rem;
+            margin: 0 0.5rem;
             border-bottom: 2px solid transparent;
             transition: all 0.2s;
         }
@@ -44,8 +45,8 @@
 
         .search-container {
             position: relative;
+            width: 100%;
             max-width: 32rem;
-            margin: 0 auto;
         }
 
         .search-icon {
@@ -71,7 +72,7 @@
         }
 
         .dropdown-toggle::after {
-            margin-left: 0.5rem;
+            display: none;
         }
 
         .profile-img {
@@ -248,10 +249,6 @@
             background-color: #dbeafe;
         }
 
-        .quick-action.blue img {
-            color: #2563eb;
-        }
-
         .quick-action.green {
             background-color: #ecfdf5;
         }
@@ -260,20 +257,12 @@
             background-color: #d1fae5;
         }
 
-        .quick-action.green img {
-            color: #10b981;
-        }
-
         .quick-action.purple {
             background-color: #f5f3ff;
         }
 
         .quick-action.purple:hover {
             background-color: #ede9fe;
-        }
-
-        .quick-action.purple img {
-            color: #8b5cf6;
         }
 
         .event-card-image {
@@ -339,7 +328,6 @@
             color: #6b7280;
         }
 
-        /* Footer */
         .footer-custom {
             background-color: white;
             border-top: 1px solid #e5e7eb;
@@ -386,6 +374,35 @@
             text-align: center;
         }
 
+        .dropdown-menu {
+            padding: 0;
+            overflow: hidden;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .dropdown-menu .dropdown-header {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .dropdown-menu .dropdown-item {
+            padding: 0.75rem 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .dropdown-menu .dropdown-item img {
+            margin-right: 0.75rem;
+            width: 1rem;
+            height: 1rem;
+        }
+
+        .dropdown-menu .dropdown-item:hover {
+            background-color: #f9fafb;
+        }
+
         @media (max-width: 767px) {
             .navbar-nav {
                 display: none;
@@ -406,34 +423,35 @@
     </style>
 </head>
 <body>
-<!-- Navbar -->
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-custom">
-        <div class="container-fluid">
-
-            <a class="navbar-brand" href="#">VolunteerHub</a>
-            
-            <!-- Menu -->
-            <ul class="navbar-nav me-auto d-none d-md-flex">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Dashboard</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Cari Event</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">Pendaftaran Event</a>
-                </li>
-            </ul>
+        <div class="container">
+            <div class="d-flex align-items-center">
+                <a class="navbar-brand" href="#">VolunteerHub</a>
+                
+                <!-- Menu -->
+                <ul class="navbar-nav d-none d-md-flex">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Cari Event</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Pendaftaran Event</a>
+                    </li>
+                </ul>
+            </div>
 
             <!-- Search Bar -->
-            <div class="search-container flex-grow-1 mx-3">
+            <div class="search-container mx-auto">
                 <div class="position-relative">
                     <img src="/placeholder.svg?height=20&width=20&text=🔍" alt="Search" class="search-icon">
                     <input type="search" class="form-control search-input" placeholder="Cari event...">
                 </div>
             </div>
 
-            <!-- Profile User -->
+            <!-- User Profile -->
             <div class="dropdown">
                 <button class="btn btn-link dropdown-toggle d-flex align-items-center text-decoration-none" type="button" data-bs-toggle="dropdown">
                     <img src="/placeholder.svg?height=32&width=32&text=JD" alt="Profile" class="profile-img">
@@ -441,21 +459,21 @@
                     <img src="/placeholder.svg?height=16&width=16&text=▼" alt="Dropdown" class="dropdown-arrow">
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end">
-                    <li class="px-3 py-2 border-bottom">
+                    <li class="dropdown-header">
                         <p class="mb-0 fw-medium">[NAMA USER]</p>
-                        <p class="mb-0 text-muted small">email@email.com</p>
+                        <p class="mb-0 text-muted small">example@email.com</p>
                     </li>
-                    <li><a class="dropdown-item d-flex align-items-center" href="#">
-                        <img src="/placeholder.svg?height=16&width=16&text=📋" alt="History" class="me-2">
+                    <li><a class="dropdown-item" href="#">
+                        <img src="/placeholder.svg?height=16&width=16&text=📋" alt="History">
                         Riwayat Pendaftaran
                     </a></li>
-                    <li><a class="dropdown-item d-flex align-items-center" href="#">
-                        <img src="/placeholder.svg?height=16&width=16&text=⚙️" alt="Settings" class="me-2">
+                    <li><a class="dropdown-item" href="#">
+                        <img src="/placeholder.svg?height=16&width=16&text=⚙️" alt="Settings">
                         Pengaturan
                     </a></li>
                     <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item d-flex align-items-center" href="#">
-                        <img src="/placeholder.svg?height=16&width=16&text=🚪" alt="Logout" class="me-2">
+                    <li><a class="dropdown-item" href="#">
+                        <img src="/placeholder.svg?height=16&width=16&text=🚪" alt="Logout">
                         Logout
                     </a></li>
                 </ul>
@@ -463,7 +481,7 @@
         </div>
     </nav>
 
-    <!-- Body -->
+    <!-- BODY -->
     <main class="py-4">
         <div class="container">
             <div class="mb-4">
@@ -471,9 +489,9 @@
                 <p class="text-muted">Selamat datang kembali, [NAMA USER]! Berikut adalah ringkasan aktivitas volunteer Anda.</p>
             </div>
             
-            <!-- Statistik -->
+            <!-- Statistik User -->
             <div class="row mb-4">
-                <!-- Total Event -->
+                <!-- Total -->
                 <div class="col-md-4 mb-3">
                     <div class="card card-custom h-100">
                         <div class="card-body p-4">
@@ -493,7 +511,7 @@
                     </div>
                 </div>
 
-                <!-- Pendaftaran Diterima -->
+                <!-- Diterima -->
                 <div class="col-md-4 mb-3">
                     <div class="card card-custom h-100">
                         <div class="card-body p-4">
@@ -513,7 +531,7 @@
                     </div>
                 </div>
 
-                <!-- Pendaftaran Menunggu -->
+                <!-- Menunggu -->
                 <div class="col-md-4 mb-3">
                     <div class="card card-custom h-100">
                         <div class="card-body p-4">
@@ -534,8 +552,8 @@
                 </div>
             </div>
 
+            <!-- Event Mendatang -->
             <div class="row">
-                <!-- Event Mendatang -->
                 <div class="col-lg-9 mb-4">
                     <h2 class="h5 fw-medium text-dark mb-3">Event Mendatang</h2>
                     <div class="card card-custom">
@@ -610,7 +628,7 @@
                     </div>
                 </div>
 
-                <!-- Aksu Cepat -->
+                <!-- Aksi Cepat -->
                 <div class="col-lg-3 mb-4">
                     <h3 class="h5 fw-medium text-dark mb-3">Aksi Cepat</h3>
                     <div class="card card-custom">
@@ -632,10 +650,10 @@
                 </div>
             </div>
 
-            <!-- Event -->
+            <!-- Seksi Event -->
             <h2 class="h5 fw-medium text-dark mb-3">Rekomendasi Event</h2>
             <div class="row">
-                <!-- Card 2 -->
+                <!-- Event 1 -->
                 <div class="col-md-4 mb-4">
                     <div class="card card-custom h-100">
                         <img src="/placeholder.svg?height=192&width=400&text=Beach+Cleanup" alt="Beach Cleanup Event" class="event-card-image">
@@ -672,7 +690,7 @@
                     </div>
                 </div>
 
-                <!-- Card 2 -->
+                <!-- Event 2 -->
                 <div class="col-md-4 mb-4">
                     <div class="card card-custom h-100">
                         <img src="/placeholder.svg?height=192&width=400&text=Digital+Workshop" alt="Digital Workshop Event" class="event-card-image">
@@ -709,7 +727,7 @@
                     </div>
                 </div>
 
-                <!-- Card 3 -->
+                <!-- Event 3 -->
                 <div class="col-md-4 mb-4">
                     <div class="card card-custom h-100">
                         <img src="/placeholder.svg?height=192&width=400&text=Cultural+Festival" alt="Cultural Festival Event" class="event-card-image">
@@ -777,5 +795,13 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'))
+            var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
+                return new bootstrap.Dropdown(dropdownToggleEl)
+            })
+        });
+    </script>
 </body>
 </html>
