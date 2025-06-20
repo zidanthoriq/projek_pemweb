@@ -455,7 +455,7 @@ try {
                                                 <i class="bi bi-eye"></i>
                                             </a>
                                             <?php if ($user['role'] == 'user' && $user['pending_registrations'] > 0): ?>
-                                                <a href="volunteer_registrations.php?user_id=<?php echo $user['id']; ?>" class="btn btn-action btn-outline-info" title="Kelola Pendaftaran">
+                                                <a href="kelola_pendaftaran.php?user_id=<?php echo $user['id']; ?>" class="btn btn-action btn-outline-info" title="Kelola Pendaftaran">
                                                     <i class="bi bi-clipboard-check"></i>
                                                 </a>
                                             <?php endif; ?>
