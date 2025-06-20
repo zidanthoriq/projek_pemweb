@@ -210,6 +210,7 @@ try {
             border-radius: 9999px;
             font-size: 0.75rem;
             font-weight: 600;
+            margin-left: 10px;
         }
 
         .role-badge.admin {
@@ -325,13 +326,13 @@ try {
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="events.php">
+                    <a class="nav-link active" href="kelola_users.php">
                         <i class="bi bi-people"></i>
                         Kelola Users
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="kelola_pendaftaran.php">
+                    <a class="nav-link" href="kelola_pendaftaran.php">
                         <i class="bi bi-clipboard-check"></i>
                         Kelola Pendaftaran
                     </a>
@@ -360,13 +361,6 @@ try {
         <header class="top-header">
             <div class="d-flex justify-content-between align-items-center">
                 <div>
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb mb-1">
-                            <li class="breadcrumb-item"><a href="dashboard_admin.php" class="text-decoration-none">Dashboard</a></li>
-                            <li class="breadcrumb-item"><a href="kelola_users.php" class="text-decoration-none">Kelola Volunteer</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Detail Volunteer</li>
-                        </ol>
-                    </nav>
                     <h5 class="mb-0 text-muted fw-medium">Detail Volunteer</h5>
                 </div>
                 <a href="kelola_users.php" class="btn btn-outline-secondary">
@@ -387,7 +381,7 @@ try {
                                 <i class="bi bi-person"></i>
                             </div>
                             <div>
-                                <h1 class="h2 fw-bold mb-2"><?php echo htmlspecialchars($user['full_name']); ?></h1>
+                                <h1 class="h2 fw-bold mb-2" style="margin-left: 10px;"><?php echo htmlspecialchars($user['full_name']); ?></h1>
                                 <div class="d-flex align-items-center gap-3 mb-2">
                                     <span class="role-badge <?php echo $user['role']; ?>">
                                         <?php echo ucfirst($user['role']); ?>
@@ -397,7 +391,7 @@ try {
                                         <?php echo htmlspecialchars($user['email']); ?>
                                     </span>
                                 </div>
-                                <p class="mb-0 opacity-75">Member sejak <?php echo formatDate($user['created_at']); ?></p>
+                                <p class="mb-0 opacity-75" style="margin-left: 15px;">Member sejak <?php echo formatDate($user['created_at']); ?></p>
                             </div>
                         </div>
                     </div>
